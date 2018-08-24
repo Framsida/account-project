@@ -1,3 +1,7 @@
+package com.qa.account;
+
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,5 +20,18 @@ public class AccountService {
 
     public void getAccountById(int idOfAccount) {
         this.accountMap.get(idOfAccount);
+    }
+
+    public JSONObject toJsonObject(){
+        JSONObject json = new JSONObject();
+
+        accountMap.forEach((k,v) -> {
+            json.put(k.toString(), v.toMap());
+        });
+
+        return json;
+    }
+    public int countFirstNameOccurences(String firstName) {
+        return 0;
     }
 }

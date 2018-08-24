@@ -1,3 +1,8 @@
+package com.qa.account;
+
+import org.json.*;
+import java.util.Map;
+
 public class Account {
     private String firstName;
     private String lastName;
@@ -35,6 +40,11 @@ public class Account {
 
     @Override
     public String toString() {
-        return "First name : " + firstName  + " Last Name : " + lastName + " Account Number : " + accountNumber;
+        return "FirstName = " + firstName + "LastName = " + lastName + "AccountNumber = " + accountNumber;
+
+    }
+
+    public Map<String, Object> toMap() {
+        return ((new JSONObject(this)).toMap());
     }
 }
