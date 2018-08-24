@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class AccountService {
     private Map<Integer, Account> accountMap;
@@ -32,6 +33,8 @@ public class AccountService {
         return json;
     }
     public int countFirstNameOccurences(String firstName) {
-        return 0;
+        AtomicInteger counter = new AtomicInteger(0);
+        accountMap.forEach((k,v) -> { if(v.getFirstName().equals(firstName)) counter.incrementAndGet(); });
+        return counter.get();
     }
 }
