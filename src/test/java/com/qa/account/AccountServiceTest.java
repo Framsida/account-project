@@ -23,8 +23,9 @@ public class AccountServiceTest {
         AccountService accountService = new AccountService();
         accountService.addAccountToMap(new Account("Josh", "Josh", 001));
         accountService.addAccountToMap(new Account("Josh", "Josh", 002));
+        accountService.addAccountToMap(new Account("Josh", "Josh", 002));
 
-        assertEquals(2, accountService.countFirstNameOccurences("Josh"));
+        assertEquals(3, accountService.countFirstNameOccurences("Josh"));
     }
 
 

@@ -33,8 +33,6 @@ public class AccountService {
         return json;
     }
     public int countFirstNameOccurences(String firstName) {
-        AtomicInteger counter = new AtomicInteger(0);
-        accountMap.forEach((k,v) -> { if(v.getFirstName().equals(firstName)) counter.incrementAndGet(); });
-        return counter.get();
+        return (int)accountMap.values().stream().filter(account -> firstName.equals(account.getFirstName())).count();
     }
 }
